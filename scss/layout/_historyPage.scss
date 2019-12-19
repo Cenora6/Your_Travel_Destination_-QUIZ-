@@ -1,0 +1,244 @@
+.addPlaceBar {
+  position: absolute;
+  top: 11.5rem;
+  left: 26rem;
+  width: 20rem;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+
+  button {
+    width: 100%;
+    height: 100%;
+    background-color: #FFFFFF;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    cursor: pointer;
+    outline: none;
+    font-size: 1.5rem;
+    font-family: $decorativeFont;
+
+    i {
+      margin-left: 1rem;
+      color: #008000;
+    }
+
+    &:active {
+      background: orange;
+    }
+  }
+}
+
+.historyBackground {
+    background: url("./../images/nightSky.jpeg");
+}
+
+.historyPage {
+  width: 70rem;
+  height: 40rem;
+  background-color: #FFFFFF;
+  position: absolute;
+  top: 15rem;
+  left: 25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 1000;
+  border-radius: 1rem;
+  box-shadow: 10px 10px 20px grey;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+
+  h2 {
+    font-size: 3.5rem;
+    font-family: $titleFont;
+    padding: 1.5rem 0.5rem;
+    border-right: 0.3rem solid orange;
+    animation:
+            typing 3.5s steps(30, end),
+            blink-caret .5s step-end infinite;
+
+    white-space: nowrap;
+    overflow: hidden;
+    letter-spacing: .15em;
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 72% }
+      }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: orange }
+    }
+
+  h3 {
+    padding: 1rem 0;
+    font-family: $decorativeFont;
+    font-size: 2rem;
+    font-weight: 600;
+  }
+
+  p {
+    padding: 1rem 0;
+    font-family: $mainFont;
+  }
+}
+
+.historyPlaces {
+  margin: 1rem;
+  width: 65rem;
+  height: 75%;
+  border-spacing: 0;
+  overflow-y: scroll;
+  display: block;
+  scrollbar-3dlight-color: #6DD5FA;
+
+  tbody {
+    overflow-x: scroll;
+
+    tr {
+      width: 50rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.2);
+      height: 10rem;
+
+      td {
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+.line1 {
+  position: absolute;
+  height: 100%;
+  left: 2.7rem;
+  top: 0;
+  width: 0.3rem;
+  background-color: #6194fa;
+  z-index: -2;
+  filter: blur(0.5px);
+}
+
+.line2 {
+  position: absolute;
+  height: 100%;
+  left: 3rem;
+  top: 0;
+  width: 0.3rem;
+  background-color: #facd3c;
+  z-index: -2;
+  filter: blur(0.5px);
+}
+
+.line3 {
+  position: absolute;
+  height: 100%;
+  left: 3.3rem;
+  top: 0;
+  width: 0.3rem;
+  background-color: #fa6b5a;
+  z-index: -2;
+  filter: blur(0.5px);
+}
+
+.id {
+  width: 10%;
+  height: 10%;
+  border-radius: 50%;
+  position: relative;
+  font-weight: 600;
+  font-family: 'Kalam', cursive;
+  background-size: 10px 10px;
+
+  .dot {
+    position: absolute;
+    background-color: #facd3c;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    top: 4.5rem;
+    z-index: -1;
+    filter: blur(1px);
+    box-shadow:  2px 2px #343030;
+  }
+}
+
+.photo {
+  width: 10%;
+  padding: 0;
+
+  img {
+    width: 10rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    margin: 1px;
+  }
+}
+
+.description {
+  width: 50%;
+}
+
+.visited {
+  text-align: center;
+
+  span {
+    font-family: $mainFont;
+    vertical-align: center;
+  }
+
+  input[id="wantToVisit"] {
+    margin: 0 0 2rem 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    position: relative;
+  }
+
+  input[id="visited"] {
+    margin: 0 0 0 1.8rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    position: relative;
+  }
+
+}
+.delete {
+  width: 10%;
+  i {
+    cursor: pointer;
+    color: #ad0000;
+  }
+}
+
+::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+  width: 10px;
+  background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+  background-color: #F90;
+  background-image: -webkit-linear-gradient(45deg,
+          rgba(255, 255, 255, .2) 25%,
+          transparent 25%,
+          transparent 50%,
+          rgba(255, 255, 255, .2) 50%,
+          rgba(255, 255, 255, .2) 75%,
+          transparent 75%,
+          transparent)
+}

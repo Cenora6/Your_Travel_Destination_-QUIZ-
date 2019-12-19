@@ -1,0 +1,72 @@
+.quizBackground {
+  background: linear-gradient(to top, #e1eec3, #f05053);
+}
+
+.quizPage {
+  width: 70rem;
+  height: 40rem;
+  background-color: #FFFFFF;
+  position: absolute;
+  top: 15rem;
+  left: 25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1000;
+  border-radius: 1rem;
+  box-shadow: 10px 10px 20px grey;
+
+  h2 {
+    font-size: 3.5rem;
+    font-family: 'Kalam', cursive;
+    padding-bottom: 1rem;
+    border-right: 0.3rem solid #FFA500;
+    animation:
+            typing 3.5s steps(30, end),
+            blink-caret .5s step-end infinite;
+
+    white-space: nowrap;
+    overflow: hidden;
+    letter-spacing: .15em;
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 68% }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: orange }
+    }
+  }
+
+  p {
+    padding-bottom: 5rem;
+    font-family: 'Muli', sans-serif;
+  }
+
+  .buttonStart {
+    width: 50rem;
+    height: 18rem;
+    background: url("./../images/quizButton.jpg") center;
+    color: white;
+    font-size: 3rem;
+    text-shadow: 1px 1px black;
+    cursor: pointer;
+    border: 2px solid black;
+    margin-left: 3rem;
+  }
+
+  .buttonResult {
+    width: 80%;
+    height: 18rem;
+    background: url("./../images/quizButton.jpg") center;
+    color: white;
+    font-size: 2rem;
+    text-shadow: 1px 1px black;
+    cursor: pointer;
+    border: 2px solid black;
+    margin-left: 1.5rem;
+  }
+}

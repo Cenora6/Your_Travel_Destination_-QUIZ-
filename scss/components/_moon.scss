@@ -1,0 +1,167 @@
+.moonSection {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(#757F9A, #D7DDE8);
+  box-shadow: 0 0 40px 15px white;
+  filter: blur(1px);
+  z-index: 1000;
+}
+
+.moonShine {
+  position: absolute;
+  right: -2rem;
+  top: -2rem;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  filter: blur(12px);
+  opacity: 0.2;
+  box-shadow: 0 0 40px 15px white;
+  animation: scaleIn 3s infinite alternate;
+  overflow: hidden;
+
+  @keyframes scaleIn {
+    from {
+      transform: scale(.5, .5);
+      opacity: .5;
+    }
+    to {
+      transform: scale(2.5, 2.5);
+      opacity: 0;
+    }
+  }
+}
+
+.circle1 {
+  position: absolute;
+  right: 100px;
+  top: 30px;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(#a8adb5, #545b6e);
+  border-radius: 50%;
+  z-index: 1000;
+  filter: blur(5px);
+  border: 1px solid black;
+}
+
+.circle2 {
+  position: absolute;
+  right: 180px;
+  top: 40px;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(#a8adb5, #545b6e);
+  border-radius: 50%;
+  z-index: 1000;
+  filter: blur(5px);
+  border: 1px solid black;
+}
+
+.circle3 {
+  position: absolute;
+  right: 90px;
+  top: 150px;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(#a8adb5, #545b6e);
+  border-radius: 50%;
+  z-index: 1000;
+  filter: blur(5px);
+  border: 1px solid black;
+}
+
+.circle4 {
+  position: absolute;
+  right: 140px;
+  top: 200px;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(#a8adb5, #545b6e);
+  border-radius: 50%;
+  z-index: 1000;
+  filter: blur(5px);
+  border: 1px solid black;
+}
+
+.circle5 {
+  position: absolute;
+  right: 20px;
+  top: 120px;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(#a8adb5, #545b6e);
+  border-radius: 50%;
+  z-index: 1000;
+  filter: blur(5px);
+  border: 1px solid black;
+}
+
+.circle6 {
+  position: absolute;
+  right: 200px;
+  top: 120px;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(#a8adb5, #545b6e);
+  border-radius: 50%;
+  z-index: 1000;
+  filter: blur(5px);
+  border: 1px solid black;
+}
+
+.circle7 {
+  position: absolute;
+  right: 30px;
+  top: 200px;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(#a8adb5, #545b6e);
+  border-radius: 50%;
+  z-index: 1000;
+  filter: blur(5px);
+  border: 1px solid black;
+}
+
+.circle8 {
+  position: absolute;
+  right: 210px;
+  top: 220px;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(#a8adb5, #545b6e);
+  border-radius: 50%;
+  z-index: 1000;
+  filter: blur(5px);
+  border: 1px solid black;
+}
+
+.circle9 {
+  position: absolute;
+  right: 50px;
+  top: 70px;
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(#a8adb5, #545b6e);
+  border-radius: 50%;
+  z-index: 1000;
+  filter: blur(5px);
+  border: 1px solid black;
+}
+
+.circle10 {
+  position: absolute;
+  right: 150px;
+  top: 110px;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(#a8adb5, #545b6e);
+  border-radius: 50%;
+  z-index: 1000;
+  filter: blur(5px);
+  border: 1px solid black;
+}

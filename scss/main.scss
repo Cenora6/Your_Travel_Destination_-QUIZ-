@@ -1,0 +1,16 @@
+@import "base/base";
+@import "base/reset";
+@import "base/typography";
+
+@import "components/menu";
+@import "components/sun";
+@import "components/moon";
+@import "components/answers";
+
+@import "utils/variables";
+
+@import "layout/loginPage";
+@import "layout/mainPage";
+@import "layout/historyPage";
+@import "layout/quizPage";
+@import "layout/newPlace";
