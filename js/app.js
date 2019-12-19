@@ -21,6 +21,9 @@ import QuizQuestion from "./components/singleQuestion";
 import { AuthProvider } from "./Auth";
 import PrivateRoute from "./privateRoute";
 
+
+
+
 class App extends Component {
 
     render() {

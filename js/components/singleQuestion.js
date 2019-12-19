@@ -1,12 +1,10 @@
-import React, {Component} from "react";
+import React, {Component, useContext} from "react";
 import Sun from "./sun";
 import Menu from "./menu";
 import questionsAnswers from "./../database/questions";
 import resultPlaces from "./../database/result";
-
-class Result extends Component {
-
-}
+import firebase from "firebase";
+import addHistory from "./database";
 
 class QuizPanel extends Component {
     constructor(props) {
@@ -18,7 +16,7 @@ class QuizPanel extends Component {
             answers: [],
             answersPhotos: [],
             result: [],
-            resultShow: false,
+            buttonHide: false,
         };
     }
 
@@ -53,35 +51,33 @@ class QuizPanel extends Component {
             const tags = resultPlaces[i].tags; // zwraca wszystkie tagi dla każdego miejsca
             // console.log(tags)
         }
-            console.log(this.state.answers); // zwraca odpowiedzi użytkownika
-            this.state.answers.forEach( tag => {
-                // console.log(tag); <- wszystkie tagi wybrane przez użytkownika wypisane osobn
-                resultPlaces.forEach(place => {
-                    // console.log(place);
+        console.log(this.state.answers); // zwraca odpowiedzi użytkownika
+        this.state.answers.forEach( tag => {
+            // console.log(tag); <- wszystkie tagi wybrane przez użytkownika wypisane osobn
+            resultPlaces.forEach(place => {
+                // console.log(place);
 
-                    if(place.tags.indexOf(tag) > -1) {
-                        place.score += 1;
-                    }
-                })
-            });
-
-            resultPlaces.sort( (a, b) => {
-                return b.score - a.score;
-            });
-
-            const newResult = [resultPlaces[0], resultPlaces[1], resultPlaces[2]];
-        console.log(newResult);
-
-        const {result} = this.state.result;
-        this.setState({
-            result: [...newResult]
+                if(place.tags.indexOf(tag) > -1) {
+                    place.score += 1;
+                }
+            })
         });
 
-        // const {resultShow} = this.state; // by pokazać ukryte result
-        // this.setState({
-        //     resultShow: true,
-        // });
+        resultPlaces.sort( (a, b) => {
+            return b.score - a.score;
+        });
 
+        const newResult = [resultPlaces[0], resultPlaces[1], resultPlaces[2]];
+        console.log(newResult);
+
+        this.setState({
+            result: [...newResult],
+            buttonHide: true,
+        });
+
+        //const {currentUser} = this.context(AuthContext);
+        console.log(firebase.auth().currentUser && firebase.auth().currentUser.email);
+        addHistory( newResult, firebase.auth().currentUser && firebase.auth().currentUser.email )
     };
 
     render() {
@@ -91,17 +87,29 @@ class QuizPanel extends Component {
                 <>
                     <section className="quizPage">
 
-                        {this.state.result.map( item => {
-                            return (
-                                <>
-                                    <h2>{item.name}</h2>
-                                    <p>{item.description}</p>
-                                </>
-                            )
-                        })}
                         <button className="buttonResult"
                                 onClick={this.handleResult}
-                                >SHOW YOUR RESULT</button>
+                        >SHOW YOUR RESULT</button>
+                        <table>
+
+                            <tbody>
+                            {this.state.result.map( item => {
+                                return (
+                                    <tr className="resultPlace">
+                                        <div className="line1"></div>
+                                        <div className="line2"></div>
+                                        <div className="line3"></div>
+
+                                        <td className="descr">
+                                            <h3>{item.name}</h3>
+                                            <p>{item.description}</p>
+                                        </td>
+                                    </tr>
+                                )
+                            })}
+
+                            </tbody>
+                        </table>
                     </section>
                 </>
             )

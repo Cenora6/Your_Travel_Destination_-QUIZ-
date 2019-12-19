@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {NavLink} from "react-router-dom";
+import firebase from "../../config/firebase";
 
 class Menu extends Component {
     render() {
@@ -16,6 +17,7 @@ class Menu extends Component {
                 <div className="menu">
                     <ul className="menuBar">
                         <li><NavLink to='/' style={linkStyle} activeStyle={activeStyle}><i className="fab fa-fort-awesome"></i></NavLink></li>
+                        <span className="loginName">{firebase.auth().currentUser && firebase.auth().currentUser.email}</span>
                         <li><NavLink to="/newQuiz" style={linkStyle} activeStyle={activeStyle}>Nowy QUIZ</NavLink></li>
                         <li><NavLink to="/history" style={linkStyle} activeStyle={activeStyle}>Historia</NavLink></li>
                     </ul>

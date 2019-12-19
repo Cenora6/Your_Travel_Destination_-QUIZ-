@@ -5,6 +5,7 @@ import Moon from "./moon"
 import "./../../scss/utils/_variables.scss";
 import AddPlace from "./addPlace";
 import resultPlaces from "../database/result";
+import firebase from "./../../config/firebase";
 
 class HistoryPanel extends Component {
     state = {
@@ -35,10 +36,6 @@ class HistoryPanel extends Component {
                     </NavLink>
                     </button>
                 </section>
-
-                resultPlaces.map( (item, index) => {
-
-            }
                 <section className="historyPage">
                     <h2>Twoje wakacyjne miejsca</h2>
                     <table className="historyPlaces">

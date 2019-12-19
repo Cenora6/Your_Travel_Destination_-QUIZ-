@@ -32,7 +32,7 @@ class Sun extends Component {
         return (
             <section className="topBar">
                 <div className="sunSection"></div>
-                <div className="sunName">{firebase.auth().currentUser && firebase.auth().currentUser.email}</div>
+                <div className="sunName"></div>
                 <div className="signOut">
                     <NavLink to="/start" style={linkStyle} onClick={this.handleLogOut}>WYLOGUJ</NavLink>
                 </div>

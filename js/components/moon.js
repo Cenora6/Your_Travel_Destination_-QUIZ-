@@ -36,7 +36,6 @@ class Moon extends Component {
                 <div className="circle9"></div>
                 <div className="circle10"></div>
 
-                <div className="sunName">{firebase.auth().currentUser && firebase.auth().currentUser.email}</div>
                 <div className="signOut">
                     <NavLink to="/start" style={linkStyle} onClick={this.handleLogOut}>WYLOGUJ</NavLink>
                 </div>
