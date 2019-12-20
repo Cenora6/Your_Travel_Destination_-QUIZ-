@@ -64,7 +64,7 @@ class QuizPanel extends Component {
             return b.score - a.score;
         });
 
-        const newResult = [resultPlaces[0], resultPlaces[1], resultPlaces[2]];
+        const newResult = [resultPlaces[0], resultPlaces[1]];
         console.log(newResult);
 
         this.setState({
@@ -72,8 +72,6 @@ class QuizPanel extends Component {
             buttonHide: true,
         });
 
-        //const {currentUser} = this.context(AuthContext);
-        //console.log(firebase.auth().currentUser && firebase.auth().currentUser.email);
         addHistory( newResult, firebase.auth().currentUser && firebase.auth().currentUser.email )
     };
 

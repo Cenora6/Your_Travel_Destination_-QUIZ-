@@ -7,34 +7,21 @@ import AddPlace from "./addPlace";
 import resultPlaces from "../database/result";
 import firebase from "./../../config/firebase";
 
-
-// show data??
-
-
-
-    // firebase.firestore().collection("history").where("email", "==", firebase.auth().currentUser && firebase.auth().currentUser.email)
-    //     .get()
-    //     .then(function(querySnapshot) {
-    //         querySnapshot.forEach(function(doc) {
-    //             // doc.data() is never undefined for query doc snapshots
-    //             console.log(doc.id, " => ", doc.data());
-    //         });
-    //     })
-    //     .catch(function(error) {
-    //         console.log("Error getting documents: ", error);
-    //     });
-
 class HistoryPanel extends Component {
     state = {
         data: [],
     };
 
-    // delete data
-    deleteData = () => {
+    deleteData = (id) => {
 
-        let dataDelete = this.database.ref('history/place' + this.id);
-        dataDelete.remove()
-
+        firebase.firestore().collection("history").doc(id).delete().then( () => {
+            console.log("Document successfully deleted!");
+            this.setState({
+                data: this.state.data.filter(item => item.id !== id)
+            })
+        }).catch(function(error) {
+            console.error("Error removing document: ", error);
+        });
     };
 
     componentDidMount() {
@@ -50,10 +37,10 @@ class HistoryPanel extends Component {
 
             places.forEach(doc => {
                 const place = doc.data();
+                place.id = doc.id;
                 //console.log(places); // wyświetla wszystkie miejsca (email: ..., place: {...} )
 
                 array.push(place);
-
             });
 
             this.setState({
@@ -85,40 +72,46 @@ class HistoryPanel extends Component {
 
                         <tbody>
 
-                        {this.state.data.map( places =>
+                        {this.state.data.map( (places, index) =>
 
-                                <tr key={places.id}>
+                            <tr key={index}>
 
-                                    <td className="id">
-                                        <span>{places.id}</span>
-                                        <div className="line1"></div>
-                                        <div className="line2"></div>
-                                        <div className="line3"></div>
-                                    </td>
-                                    <td className="photo">
-                                        {/*<img src={places.photos[0]}/>*/}
-                                        {/*<img src={places.photos[1]}/>*/}
-                                    </td>
-                                    <td className="description">
-                                        <h3>{places.place.name}</h3>
-                                        <p>{places.place.description}
-                                        </p>
-                                    </td>
-                                    <td className="visited">
-                                        <div>
-                                            <span>Will visit</span>
-                                            <input type="radio" name="visit" id="wantToVisit"/>
-                                        </div>
-                                        <div>
-                                            <span>Visited</span>
-                                            <input type="radio" name="visit" id="visited"/>
-                                        </div>
+                                <td className="id">
+                                    <span>{index + 1}</span>
+                                    <div className="line1"></div>
+                                    <div className="line2"></div>
+                                    <div className="line3"></div>
+                                </td>
+                                <td className="photo">
 
-                                    </td>
-                                    <td className="delete">
-                                        <i className="far fa-minus-square" onClick={this.deleteData}></i>
-                                    </td>
-                                </tr>
+                                    {places.place.photos.map( (photo) => {
+                                        return (
+                                            <>
+                                                <img src={photo}/>
+                                            </>
+                                        )
+                                    })}
+                                </td>
+                                <td className="description">
+                                    <h3>{places.place.name}</h3>
+                                    <p>{places.place.description}
+                                    </p>
+                                </td>
+                                <td className="visited">
+                                    <div>
+                                        <span>Will visit</span>
+                                        <input type="radio" name="visit" id="wantToVisit"/>
+                                    </div>
+                                    <div>
+                                        <span>Visited</span>
+                                        <input type="radio" name="visit" id="visited"/>
+                                    </div>
+
+                                </td>
+                                <td className="delete">
+                                    <i className="far fa-minus-square" onClick={() => this.deleteData (places.id)}></i>
+                                </td>
+                            </tr>
 
                         )}
 

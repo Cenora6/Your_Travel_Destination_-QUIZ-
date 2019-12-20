@@ -14,7 +14,6 @@ const addHistory = (places, email) => {
                 console.error("Error adding document: ", error);
             });
     })
-
 };
 
 export default addHistory;

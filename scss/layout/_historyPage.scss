@@ -83,7 +83,8 @@
   }
 
   p {
-    padding: 1rem 0;
+    padding: 1rem;
+    text-align: left;
     font-family: $mainFont;
   }
 }
@@ -156,6 +157,9 @@
   font-weight: 600;
   font-family: 'Kalam', cursive;
   background-size: 10px 10px;
+  color: white;
+  text-shadow: 2px 2px black;
+  font-size: 3rem;
 
   .dot {
     position: absolute;
