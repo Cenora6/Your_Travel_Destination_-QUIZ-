@@ -25,7 +25,7 @@ class Login extends Component {
                 });
             })
             .catch((error) => {
-                if (password.length < 6 && email.length < 3 && email.indexOf())
+                if (password.length < 6 && email.length < 3 && email.indexOf("@") < 0)
 
                 this.setState({
                     error: error.message,

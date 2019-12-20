@@ -13,7 +13,7 @@ class Sun extends Component {
         e.preventDefault();
         firebase.auth().signOut()
             .then(() => {
-                alert("Wylogowano! :)")
+                console.log("Wylogowano! :)")
             })
             .catch(function(error) {
                 alert(error);
@@ -27,12 +27,14 @@ class Sun extends Component {
 
         const linkStyle = {
             textDecoration: "none",
-            color: "#000000",
+            background: "(to right, #b92b27, #1565C0)",
+            textShadow: "1px 1px white"
         };
         return (
             <section className="topBar">
                 <div className="sunSection"></div>
                 <div className="sunName"></div>
+
                 <div className="signOut">
                     <NavLink to="/start" style={linkStyle} onClick={this.handleLogOut}>WYLOGUJ</NavLink>
                 </div>

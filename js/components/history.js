@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, {Component, useEffect} from "react";
 import {NavLink} from 'react-router-dom';
 import Menu from "./menu"
 import Moon from "./moon"
@@ -7,17 +7,60 @@ import AddPlace from "./addPlace";
 import resultPlaces from "../database/result";
 import firebase from "./../../config/firebase";
 
+
+// show data??
+
+
+
+    // firebase.firestore().collection("history").where("email", "==", firebase.auth().currentUser && firebase.auth().currentUser.email)
+    //     .get()
+    //     .then(function(querySnapshot) {
+    //         querySnapshot.forEach(function(doc) {
+    //             // doc.data() is never undefined for query doc snapshots
+    //             console.log(doc.id, " => ", doc.data());
+    //         });
+    //     })
+    //     .catch(function(error) {
+    //         console.log("Error getting documents: ", error);
+    //     });
+
 class HistoryPanel extends Component {
     state = {
-        items: []
+        data: [],
     };
 
-    handleDelete = e => {
-        let rows = [...this.state.rows];
-        rows.splice(e, 1);
-        this.setState({
-            rows: rows
-        })
+    // delete data
+    deleteData = () => {
+
+        let dataDelete = this.database.ref('history/place' + this.id);
+        dataDelete.remove()
+
+    };
+
+    componentDidMount() {
+        this.getHistory();
+    }
+
+    getHistory = () => {
+
+        const email = firebase.auth().currentUser && firebase.auth().currentUser.email;
+
+        firebase.firestore().collection("history").where("email", "==", email ).get().then(places => {
+            const array = [];
+
+            places.forEach(doc => {
+                const place = doc.data();
+                //console.log(places); // wyświetla wszystkie miejsca (email: ..., place: {...} )
+
+                array.push(place);
+
+            });
+
+            this.setState({
+                data: array,
+            })
+
+        });
     };
 
     render() {
@@ -42,23 +85,23 @@ class HistoryPanel extends Component {
 
                         <tbody>
 
-                        {resultPlaces.map( (item, index) => (
-                            <>
-                                <tr key={resultPlaces[index].id}>
+                        {this.state.data.map( places =>
+
+                                <tr key={places.id}>
 
                                     <td className="id">
-                                        <span>{resultPlaces[index].id}</span>
+                                        <span>{places.id}</span>
                                         <div className="line1"></div>
                                         <div className="line2"></div>
                                         <div className="line3"></div>
                                     </td>
                                     <td className="photo">
-                                        <img src={resultPlaces[index].photos[0]}/>
-                                        <img src={resultPlaces[index].photos[1]}/>
+                                        {/*<img src={places.photos[0]}/>*/}
+                                        {/*<img src={places.photos[1]}/>*/}
                                     </td>
                                     <td className="description">
-                                        <h3>{resultPlaces[index].name}</h3>
-                                        <p>{resultPlaces[index].description}
+                                        <h3>{places.place.name}</h3>
+                                        <p>{places.place.description}
                                         </p>
                                     </td>
                                     <td className="visited">
@@ -73,12 +116,11 @@ class HistoryPanel extends Component {
 
                                     </td>
                                     <td className="delete">
-                                        <i className="far fa-minus-square" onClick={this.handleDelete}></i>
+                                        <i className="far fa-minus-square" onClick={this.deleteData}></i>
                                     </td>
                                 </tr>
 
-                            </>
-                        ))}
+                        )}
 
                         </tbody>
                     </table>

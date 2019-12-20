@@ -17,12 +17,8 @@ import Register from "./login/register";
 import Login from "./login/login";
 import AddPlace from "./components/addPlace";
 import QuizQuestion from "./components/singleQuestion";
-
 import { AuthProvider } from "./Auth";
 import PrivateRoute from "./privateRoute";
-
-
-
 
 class App extends Component {
 

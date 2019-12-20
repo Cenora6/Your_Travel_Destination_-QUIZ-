@@ -42,9 +42,6 @@ class QuizPanel extends Component {
         });
     };
 
-
-
-
     handleResult = () => {
 
         for (let i = 0; i < resultPlaces.length; i++) {
@@ -76,7 +73,7 @@ class QuizPanel extends Component {
         });
 
         //const {currentUser} = this.context(AuthContext);
-        console.log(firebase.auth().currentUser && firebase.auth().currentUser.email);
+        //console.log(firebase.auth().currentUser && firebase.auth().currentUser.email);
         addHistory( newResult, firebase.auth().currentUser && firebase.auth().currentUser.email )
     };
 
