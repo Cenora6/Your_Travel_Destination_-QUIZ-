@@ -34,10 +34,6 @@ class Sun extends Component {
             <section className="topBar">
                 <div className="sunSection"></div>
                 <div className="sunName"></div>
-
-                <div className="signOut">
-                    <NavLink to="/start" style={linkStyle} onClick={this.handleLogOut}>WYLOGUJ</NavLink>
-                </div>
                 <div className="sunshine"></div>
             </section>
         )
