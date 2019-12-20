@@ -19,7 +19,7 @@ const resultPlaces = [
         id: 3,
         name: "Brazylia",
         description: "razylia to największy kraj w Ameryce Południowej, a zarazem jedno z największych państw świata. Często nazywana jest krajem „miłości, korupcji i słońca”, choć według wielu osób zdecydowanie należałoby jeszcze dodać, że także piłki nożnej, ponieważ ten sport kochają tam wszyscy miłością bezwarunkową. Turystów przyciągają nieziemskie widoki, takie jak ciągnąca się kilometrami puszcza Amazońska czy bajeczne wodospady Iguazu. Na miejscu kuszą nas rozmaite gatunki owoców tropikalnych o niewiele mówiących nam nazwach, ale także doskonale nam znane mango i pomarańcze, których smak jest tutaj jednak nie do podrobienia.",
-        tags: ["natura", "gorący", "lasy", "natura", "zwiedzać"],
+        tags: ["natura", "gorący", "lasy", "zwiedzać"],
         photos: ["http://www.inkas.com/tours/jpg_files/jpg_photos/brazil/new%20brazil%20jpgs/49f52d24635593.17038566frogview-gallery.jpg", "https://www.travelinglifestyle.net/wp-content/uploads/2018/07/brasil-759x500.jpg"],
         score: 0,
     },
@@ -75,8 +75,16 @@ const resultPlaces = [
         id: 10,
         name: "Nowa Zelandia",
         description: "Po przeciwnej stronie globu znajdują się dwie wyspy, których naturalne piękno nie ma sobie równych na całym świecie. Nowa Zelandia ocalona od masowej turystyki zachwyca niekończącymi się plażami, fiordami pełnymi delfinów i fok, gejzerami tryskającymi turkusową wodą. Połacie zielonych łąk, lodowce i góry, przy których Alpy wyglądają jak Babia Góra czynią to miejsce naprawdę wyjątkowym. Zapraszamy do Nowej Zelandii, gdzie liczba owiec wciąż czterokrotnie przekracza liczbę ludności!",
-        tags: ["natura", "gorący", "lasy", "natura", "zwiedzać"],
+        tags: ["natura", "gorący", "lasy", "zwiedzać"],
         photos: ["https://www.worldtravelguide.net/wp-content/uploads/2017/04/shu-NewZealand-155246192-Olga-Danylenko-copy.jpg", "https://nz.ambafrance.org/local/cache-vignettes/L945xH531/2f810c5f814ea3d6-e7a79.jpg?1569856132"],
+        score: 0,
+    },
+    {
+        id: 11,
+        name: "Finlandia",
+        description: "Kraina Tysiąca Jezior - to piękne krajobrazy, lasy i jeziora, fascynująca, dziewicza przyroda, ale także ciekawa kultura. Finlandia to kraj zamożny, dbający o ekologię, z nowoczesnymi miastami jak stolica - Helsinki, gdzie podziwiać można wspaniale odrestaurowane zabytki. To również kraina Muminków i św. Mikołaja, będąc w Finlandii warto także odwiedzić słynny kurort narciarski Lahti.",
+        tags: ["natura", "zimny", "góry", "zwiedzać"],
+        photos: ["http://purmosfera.pl/wp-content/uploads/2015/03/purmo_sztuka_ogrzewania_finlandia_1.jpg", "https://cdn3.podroze.smcloud.net/t/photos/140543/finlandia-zimowy-krajobraz-w-okolicach-saariselka.jpg"],
         score: 0,
     }
 ];

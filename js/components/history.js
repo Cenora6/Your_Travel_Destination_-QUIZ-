@@ -97,17 +97,17 @@ class HistoryPanel extends Component {
                                     <p>{places.place.description}
                                     </p>
                                 </td>
-                                <td className="visited">
-                                    <div>
-                                        <span>Will visit</span>
-                                        <input type="radio" name="visit" id="wantToVisit"/>
-                                    </div>
-                                    <div>
-                                        <span>Visited</span>
-                                        <input type="radio" name="visit" id="visited"/>
-                                    </div>
+                                {/*<td className="visited">*/}
+                                {/*    <div>*/}
+                                {/*        <span>Will visit</span>*/}
+                                {/*        <input type="radio" name="visit" id="wantToVisit"/>*/}
+                                {/*    </div>*/}
+                                {/*    <div>*/}
+                                {/*        <span>Visited</span>*/}
+                                {/*        <input type="radio" name="visit" id="visited"/>*/}
+                                {/*    </div>*/}
 
-                                </td>
+                                {/*</td>*/}
                                 <td className="delete">
                                     <i className="far fa-minus-square" onClick={() => this.deleteData (places.id)}></i>
                                 </td>

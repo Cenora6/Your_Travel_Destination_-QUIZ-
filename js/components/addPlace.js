@@ -3,6 +3,7 @@ import Moon from "./moon";
 import Menu from "./menu";
 import {NavLink} from "react-router-dom";
 import "./../../scss/utils/_variables.scss";
+import firebase from "../../config/firebase";
 
 const placeId = 0;
 
@@ -14,6 +15,7 @@ class AddPlace extends Component {
         photos: "",
     };
 
+
     handleChangeName = e => { //imię
         this.setState({
             name: e.target.value,
@@ -22,7 +24,7 @@ class AddPlace extends Component {
 
     handleChangeDescription = e => { // opis
         this.setState({
-            name: e.target.value,
+            description: e.target.value,
         })
     };
 
@@ -30,9 +32,18 @@ class AddPlace extends Component {
         console.log(e.target)
     };
 
-    handleSave = e => {
-        e.preventDefault();
+    handleSave = (place, email) => {
 
+                // firebase.firestore().collection("history").add({
+                //     place: [this.state.name, this.state.description],
+                //     email: firebase.auth().currentUser && firebase.auth().currentUser.email
+                // })
+                //     .then(function(docRef) {
+                //         console.log("Document written with ID: ", docRef.id);
+                //     })
+                //     .catch(function(error) {
+                //         console.error("Error adding document: ", error);
+                //     });
     };
 
     render() {
