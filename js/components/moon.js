@@ -35,10 +35,6 @@ class Moon extends Component {
                 <div className="circle8"></div>
                 <div className="circle9"></div>
                 <div className="circle10"></div>
-
-                <div className="signOut">
-                    <NavLink to="/start" style={linkStyle} onClick={this.handleLogOut}>WYLOGUJ</NavLink>
-                </div>
                 <div className="moonShine"></div>
             </section>
         )
