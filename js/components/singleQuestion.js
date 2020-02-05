@@ -82,12 +82,12 @@ class QuizPanel extends Component {
                             {this.state.result.map( item => {
                                 return (
                                     <tr className="resultPlace">
-                                        <div className="line1"></div>
-                                        <div className="line2"></div>
-                                        <div className="line3"></div>
+                                        <td className="line1"></td>
+                                        <td className="line2"></td>
+                                        <td className="line3"></td>
                                         <td className="data">
                                             <h3>{item.name}</h3>
-                                            <div class='photos'>
+                                            <div className='photos'>
                                                 <img src={`${item.photos[0]}`} alt='photo'/>
                                                 <img src={`${item.photos[1]}`} alt='photo'/>
                                             </div>

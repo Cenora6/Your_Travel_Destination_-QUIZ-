@@ -8,6 +8,8 @@ import firebase from "./../../config/firebase";
 class HistoryPanel extends Component {
     state = {
         data: [],
+        clicked: false,
+        id: "",
     };
 
     deleteData = (id) => {
@@ -36,7 +38,6 @@ class HistoryPanel extends Component {
             places.forEach(doc => {
                 const place = doc.data();
                 place.id = doc.id;
-                //console.log(places); // wyświetla wszystkie miejsca (email: ..., place: {...} )
 
                 array.push(place);
             });
@@ -45,6 +46,13 @@ class HistoryPanel extends Component {
                 data: array,
             })
 
+        });
+    };
+
+    showDetails = (e, index) => {
+        this.setState({
+            id: index,
+            clicked: !this.state.clicked,
         });
     };
 
@@ -67,47 +75,37 @@ class HistoryPanel extends Component {
                 <section className="historyPage">
                     <h2>Twoje wakacyjne miejsca</h2>
                     <table className="historyPlaces">
-
                         <tbody>
-
                         {this.state.data.map( (places, index) =>
-
                             <tr key={index}>
-
                                 <td className="id">
                                     <span>{index + 1}</span>
                                     <div className="line1"></div>
                                     <div className="line2"></div>
                                     <div className="line3"></div>
                                 </td>
-                                <td className="photo">
-
-                                    {places.place.photos.map( (photo) => {
-                                        return (
-                                            <>
-                                                <img src={photo}/>
-                                            </>
-                                        )
-                                    })}
-                                </td>
                                 <td className="description">
-                                    <h3>{places.place.name}</h3>
-                                    <p>{places.place.description}
-                                    </p>
-                                </td>
-                                {/*<td className="visited">*/}
-                                {/*    <div>*/}
-                                {/*        <span>Will visit</span>*/}
-                                {/*        <input type="radio" name="visit" id="wantToVisit"/>*/}
-                                {/*    </div>*/}
-                                {/*    <div>*/}
-                                {/*        <span>Visited</span>*/}
-                                {/*        <input type="radio" name="visit" id="visited"/>*/}
-                                {/*    </div>*/}
+                                    <div className="mainInfo" onClick={(e) => this.showDetails (e, index)}>
+                                        <h3>{places.place.name}</h3>
+                                        <i className="far fa-minus-square" onClick={() => this.deleteData (places.id)}></i>
+                                    </div>
+                                    <div className={`details ${(this.state.clicked === true && index === this.state.id) ? "animate slideIn" : "hidden"}`} id={index}>
+                                        <div className='photo'>
+                                            {places.place.photos.map( (photo, index) => {
+                                                return (
+                                                    <img src={photo} alt='photo' key={index}/>
+                                                )
+                                            })}
+                                        </div>
+                                        <div className='info'>
+                                            <p>{places.place.description}</p>
+                                        </div>
+                                        <div className='visited'>
+                                            <label className="text" htmlFor="visited">Visited</label>
+                                            <input type="checkbox" name="visited" id="visited"/>
+                                        </div>
+                                    </div>
 
-                                {/*</td>*/}
-                                <td className="delete">
-                                    <i className="far fa-minus-square" onClick={() => this.deleteData (places.id)}></i>
                                 </td>
                             </tr>
 
