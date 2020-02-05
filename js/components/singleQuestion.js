@@ -31,7 +31,8 @@ class QuizPanel extends Component {
     };
 
     componentDidMount() {
-        this.loadQuiz()
+        this.loadQuiz();
+        this.handleResult();
     }
 
     handleNextQuestion = (answer) => {
@@ -43,17 +44,8 @@ class QuizPanel extends Component {
     };
 
     handleResult = () => {
-
-        for (let i = 0; i < resultPlaces.length; i++) {
-            const tags = resultPlaces[i].tags; // zwraca wszystkie tagi dla każdego miejsca
-            // console.log(tags)
-        }
-        console.log(this.state.answers); // zwraca odpowiedzi użytkownika
         this.state.answers.forEach( tag => {
-            // console.log(tag); <- wszystkie tagi wybrane przez użytkownika wypisane osobn
             resultPlaces.forEach(place => {
-                // console.log(place);
-
                 if(place.tags.indexOf(tag) > -1) {
                     place.score += 1;
                 }
@@ -85,12 +77,7 @@ class QuizPanel extends Component {
             return (
                 <>
                     <section className="quizPage">
-
-                        <button className="buttonResult"
-                                onClick={this.handleResult}
-                        >SHOW YOUR RESULT</button>
                         <table>
-
                             <tbody>
                             {this.state.result.map( item => {
                                 return (
@@ -98,9 +85,12 @@ class QuizPanel extends Component {
                                         <div className="line1"></div>
                                         <div className="line2"></div>
                                         <div className="line3"></div>
-
-                                        <td className="descr">
+                                        <td className="data">
                                             <h3>{item.name}</h3>
+                                            <div class='photos'>
+                                                <img src={`${item.photos[0]}`} alt='photo'/>
+                                                <img src={`${item.photos[1]}`} alt='photo'/>
+                                            </div>
                                             <p>{item.description}</p>
                                         </td>
                                     </tr>
@@ -115,23 +105,23 @@ class QuizPanel extends Component {
         } else {
             const questions = questionsAnswers[this.state.currentQuestion].title;
             const answers = questionsAnswers[this.state.currentQuestion].answers;
+            const photos = questionsAnswers[this.state.currentQuestion].photos;
             return (
                 <>
                     <section className="quizPage">
                         <h3>Pytanie {this.state.currentQuestion + 1}:</h3>
                         <h4> {questions}</h4>
                         <ul className="quizAnswers">
-                            {answers.map( (answer) => (
-                                    <>
-                                        <li
-                                            key={this.state.currentQuestion}
-                                            onClick={ () => this.handleNextQuestion (answer) }
-                                            className={"answer"}>
-                                            ➤ {answer}
-                                        </li>
-                                    </>
-                                )
-                            )}
+                            {answers.map( (answer, index) => (
+                            <>
+                                    <li
+                                        key={this.state.currentQuestion}
+                                        onClick={() => this.handleNextQuestion(answer)}
+                                        className={"answer"} style={ {backgroundImage: `url(${photos[index]})`}} >
+                                        ➤ {answer}
+                                    </li>
+                            </>
+                            ))}
                         </ul>
                     </section>
                 </>
