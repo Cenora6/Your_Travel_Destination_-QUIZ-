@@ -8,10 +8,55 @@ body {
   margin: 0 auto;
 }
 
-.switch-wrapper {
-  position: relative;
+.error {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40rem;
+  height: 10rem;
+  position: absolute;
+  top: 30%;
+  left: 22%;
+  background-color: #ffe6e6;
+  border: 0.1rem solid #ff5050;
+
+  .error-message {
+    color: #ff5050;
+    font-family: 'Muli', sans-serif;
+    font-size: 1rem;
+  }
+
+  i {
+    margin: 1rem;
+    font-size: 2rem;
+    color: #ff5050;
+    cursor: pointer;
+  }
 }
 
-.switch-wrapper > div {
-  position: absolute;
+.fadeIn {
+  -webkit-animation: fadein 1s;
+  -moz-animation: fadein 1s;
+  -ms-animation: fadein 1s;
+  -o-animation: fadein 1s;
+  animation: fadein 1s;
+
+  @keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+}
+
+.fadeOut {
+  -webkit-animation: fadeout 1s;
+  -moz-animation: fadeout 1s;
+  -ms-animation: fadeout 1s;
+  -o-animation: fadeout 1s;
+  animation: fadeout 1s;
+
+  @keyframes fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+  }
 }

@@ -3,6 +3,17 @@ import {NavLink} from "react-router-dom";
 import firebase from "../../config/firebase";
 
 class Menu extends Component {
+
+    handleLogOut = e => {
+        e.preventDefault();
+        firebase.auth().signOut()
+            .then(() => {
+            })
+            .catch(function(error) {
+                alert(error);
+            });
+    };
+
     render() {
         const activeStyle = {
             fontSize: "2.1rem",
@@ -29,7 +40,7 @@ class Menu extends Component {
                             <span className="loginName">{firebase.auth().currentUser && firebase.auth().currentUser.email}</span>
                             <NavLink exact to="/start" style={logoutStyle} onClick={this.handleLogOut}>WYLOGUJ</NavLink>
                         </li>
-                        <li><NavLink exact to='/' style={linkStyle} activeStyle={activeStyle}><i className="fab fa-fort-awesome"></i></NavLink></li>
+                        <li><NavLink exact to='/home' style={linkStyle} activeStyle={activeStyle}><i className="fab fa-fort-awesome"></i></NavLink></li>
                         <li><NavLink exact to="/newQuiz" style={linkStyle} activeStyle={activeStyle}>Nowy QUIZ</NavLink></li>
                         <li><NavLink exact to="/history" style={linkStyle} activeStyle={activeStyle}>Historia</NavLink></li>
                     </ul>

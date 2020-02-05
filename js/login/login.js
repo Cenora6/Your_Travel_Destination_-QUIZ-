@@ -1,34 +1,32 @@
 import React, {Component} from "react";
 import {NavLink} from "react-router-dom";
 import firebase from './../../config/firebase';
-import { withRouter, Redirect } from 'react-router'
 import EmptyMenu from "./../components/emptyMenu"
 import EmptySun from "./../components/emptySun"
+import {history} from "./../app"
 
 class Login extends Component {
     state = {
         email: "",
         password: "",
-        errors: null,
-        redirect: null
+        error: false,
+        fadeOut: false,
     };
 
     handleSubmit = e => {
         e.preventDefault();
         const { email, password } = this.state;
+
         firebase
             .auth()
             .signInWithEmailAndPassword(email, password)
             .then((user) => {
-                this.setState({
-                    redirect: "/"
-                });
+                history.push("/home")
             })
             .catch((error) => {
-                if (password.length < 6 && email.length < 3 && email.indexOf("@") < 0)
-
                 this.setState({
-                    error: error.message,
+                    fadeOut: false,
+                    error: true,
                     email: "",
                     password: ""
                 })
@@ -41,24 +39,33 @@ class Login extends Component {
         })
     };
 
+    handleCloseWindow = (e) => {
+        this.setState({
+            fadeOut: true,
+        });
+        setTimeout( () => {
+            this.setState(
+                {
+                    error: false,
+                });
+        }, 1000);
+    };
+
     render() {
-        let errorMessages = this.state.error ?
-            (<div className="errors">{this.state.error}</div>) : null;
-
-        if (this.state.redirect) {
-            return <Redirect to={this.state.redirect}/>
-        }
-
         const linkStyle = {
             textDecoration: "none",
             color: "#fff",
         };
         return (
             <section className="logInTab">
+                {this.state.error &&
+                <div className={`error ${this.state.fadeOut === true ? "fadeOut" : "fadeIn"}`}>
+                    <span className='error-message'>Błędne dane.</span>
+                    <i className="fas fa-times" onClick={this.handleCloseWindow}></i>
+                </div>}
                 <h2>Zaloguj się</h2>
                 <form className="loginRegister loginTable"
                       onSubmit={this.handleSubmit}>
-                    {errorMessages}
                     <label>Email:
                         <input type="email"
                                placeholder="Wpisz adres email"
@@ -76,7 +83,7 @@ class Login extends Component {
                     </label>
                     <div className="buttons">
                         <button type="submit">Zaloguj</button>
-                        <NavLink to="/start" style={linkStyle}><button>Wróć</button></NavLink>
+                        <NavLink to="/" style={linkStyle}><button>Wróć</button></NavLink>
                     </div>
                 </form>
             </section>
@@ -94,4 +101,4 @@ function LoginPage() {
     )
 }
 
-export default withRouter(LoginPage);
+export default LoginPage;

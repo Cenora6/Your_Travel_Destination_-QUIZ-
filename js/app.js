@@ -4,10 +4,9 @@ import "../scss/main.scss";
 import {
     HashRouter,
     Route,
-    Link,
     Switch,
-    NavLink,
 } from 'react-router-dom';
+import { createHashHistory } from 'history'
 
 import Main from './components/main';
 import Quiz from './components/mainQuiz';
@@ -20,6 +19,8 @@ import QuizQuestion from "./components/singleQuestion";
 import { AuthProvider } from "./Auth";
 import PrivateRoute from "./privateRoute";
 
+export const history = createHashHistory();
+
 class App extends Component {
 
     render() {
@@ -29,10 +30,10 @@ class App extends Component {
             <AuthProvider>
                 <HashRouter>
                     <Switch>
-                            <PrivateRoute exact path='/' component={Main}/>
+                            <PrivateRoute exact path='/home' component={Main}/>
                             <PrivateRoute exact path='/newQuiz' component={Quiz} />
                             <PrivateRoute exact path='/history' component={History} />
-                            <Route exact path='/start' component={Start} />
+                            <Route exact path='/' component={Start} />
                             <Route exact path='/register' component={Register} />
                             <Route exact path="/login" component={Login} />
                             <Route exact path="/quiz" component={QuizQuestion} />

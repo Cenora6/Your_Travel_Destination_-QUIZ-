@@ -1,40 +1,46 @@
 import React, { Component } from 'react';
 import firebase from './../../config/firebase';
-import { withRouter } from 'react-router-dom';
 import EmptyMenu from "./../components/emptyMenu"
 import EmptySun from "./../components/emptySun"
-import {NavLink, Redirect } from "react-router-dom";
+import {NavLink } from "react-router-dom";
+import {history} from "./../app"
 
 class Register extends Component {
     state = {
         email: "",
         password: "",
-        error: null,
-        redirect: null,
-        message: null,
+        errorData: false,
+        errorAccount: false,
+        fadeOut: false,
     };
 
     handleSubmit = e => {
         e.preventDefault();
         const { email, password } = this.state;
-        const user = firebase
+        firebase
             .auth()
             .createUserWithEmailAndPassword(email, password)
             .then((user) => {
-
-                this.setState({
-                    message: "Zarejestrowano! Możesz wrócić do strony głównej i się zalogować:)",
-                    email: "",
-                    password: ""
-                });
-                //alert("Zarejestrowano! Teraz możesz się zalogować :)")
+                history.push("/home")
             })
             .catch((error) => {
-                this.setState({
-                    error: error.message,
-                })
+                console.log(error);
+                if(error.code === "auth/invalid-email") {
+                    this.setState({
+                        fadeOut: false,
+                        errorData: true,
+                        email: "",
+                        password: ""
+                    })
+                } else {
+                    this.setState({
+                        fadeOut: false,
+                        errorAccount: true,
+                        email: "",
+                        password: ""
+                    })
+                }
             });
-        return user;
     };
 
     handleChange = e => {
@@ -43,17 +49,20 @@ class Register extends Component {
         })
     };
 
+    handleCloseWindow = (e) => {
+        this.setState({
+            fadeOut: true,
+        });
+        setTimeout( () => {
+            this.setState(
+                {
+                    errorAccount: false,
+                    errorData: false,
+                });
+        }, 1000);
+    };
+
     render() {
-
-        let errorMessages = this.state.error ?
-            (<div className="errors">{this.state.error}</div>) : null;
-
-        let correctMessages = this.state.message ?
-            (<div className="message">{this.state.message}</div>) : null;
-
-        if (this.state.redirect) {
-            return <Redirect to={this.state.redirect}/>
-        }
 
         const linkStyle = {
             textDecoration: "none",
@@ -61,11 +70,22 @@ class Register extends Component {
         };
         return (
             <section className="registerTab">
+
+                {this.state.errorData &&
+                <div className={`error ${this.state.fadeOut === true ? "fadeOut" : "fadeIn"}`}>
+                    <span className='error-message'>Błędne dane.</span>
+                    <i className="fas fa-times" onClick={this.handleCloseWindow}></i>
+                </div>}
+
+                {this.state.errorAccount &&
+                <div className={`error ${this.state.fadeOut === true ? "fadeOut" : "fadeIn"}`}>
+                    <span className='error-message'>Użytkownik istnieje już w bazie.</span>
+                    <i className="fas fa-times" onClick={this.handleCloseWindow}></i>
+                </div>}
+
                 <h2>Zarejestruj się</h2>
                 <form className="loginRegister registerTable"
                       onSubmit={this.handleSubmit}>
-                    {errorMessages}
-                    {correctMessages}
                     <label>Email:
                         <input type="email"
                                name="email"
@@ -85,7 +105,7 @@ class Register extends Component {
                     </label>
                     <div className="buttons">
                         <button type="submit">Zarejestruj</button>
-                        <NavLink to="/start" style={linkStyle}><button>Wróć</button></NavLink>
+                        <NavLink to="/" style={linkStyle}><button>Wróć</button></NavLink>
                     </div>
                 </form>
             </section>
@@ -103,4 +123,4 @@ function RegisterPage() {
     )
 }
 
-export default withRouter(RegisterPage);
+export default RegisterPage;
