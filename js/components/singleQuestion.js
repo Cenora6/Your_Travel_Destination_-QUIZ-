@@ -64,7 +64,11 @@ class QuizPanel extends Component {
             return b.score - a.score;
         });
 
-        const newResult = [resultPlaces[0], resultPlaces[1]];
+        const min = 0;
+        const max = 3;
+        const randomResult = Math.random() * (max - min) + min;
+
+        const newResult = [resultPlaces[Math.floor(randomResult)], resultPlaces[Math.floor(randomResult + 1 )]];
         console.log(newResult);
 
         this.setState({
@@ -77,7 +81,7 @@ class QuizPanel extends Component {
 
     render() {
 
-        if (this.state.currentQuestion > 4 ) {
+        if (this.state.currentQuestion > 5 ) {
             return (
                 <>
                     <section className="quizPage">

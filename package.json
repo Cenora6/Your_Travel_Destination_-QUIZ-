@@ -1,12 +1,16 @@
 {
-  "name": "YourTravelDestination",
+  "name": "your_travel_destination",
   "version": "1.0.0",
-  "description": "## Cat Shelter App",
+  "description": "## Your Travel Destination",
+  "homepage": "http://cenora6.github.io/Your-Travel-Destination/",
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack -p",
-    "start": "webpack-dev-server --hot --inline -d"
+    "start": "webpack-dev-server --hot --inline -d",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "keywords": [],
   "author": "",
@@ -27,6 +31,7 @@
     "babel-loader": "^8.0.6",
     "css-loader": "^3.2.0",
     "file-loader": "^4.2.0",
+    "gh-pages": "^2.2.0",
     "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.12.0",
     "postcss-loader": "^3.0.0",
@@ -44,6 +49,5 @@
   },
   "bugs": {
     "url": "https://github.com/Cenora6/Your_Travel_Destination_App/issues"
-  },
-  "homepage": "https://github.com/Cenora6/Your_Travel_Destination_App#readme"
+  }
 }

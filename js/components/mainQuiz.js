@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-
 import Menu from "./menu"
 import Sun from "./sun"
 

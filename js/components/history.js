@@ -3,8 +3,6 @@ import {NavLink} from 'react-router-dom';
 import Menu from "./menu"
 import Moon from "./moon"
 import "./../../scss/utils/_variables.scss";
-import AddPlace from "./addPlace";
-import resultPlaces from "../database/result";
 import firebase from "./../../config/firebase";
 
 class HistoryPanel extends Component {

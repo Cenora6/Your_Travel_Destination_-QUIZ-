@@ -1,9 +1,7 @@
 import React, {Component} from "react";
 import {NavLink} from "react-router-dom";
-
 import Menu from "./menu"
 import Sun from "./sun"
-import firebase from "../../config/firebase";
 
 class MainPanel extends Component {
 

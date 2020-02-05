@@ -25,7 +25,7 @@ class Menu extends Component {
                 <div className="menu">
                     <ul className="menuBar">
 
-                        <li class="LogOut">
+                        <li className="LogOut">
                             <span className="loginName">{firebase.auth().currentUser && firebase.auth().currentUser.email}</span>
                             <NavLink exact to="/start" style={logoutStyle} onClick={this.handleLogOut}>WYLOGUJ</NavLink>
                         </li>

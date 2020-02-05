@@ -28,6 +28,12 @@ const questionsAnswers = [
         title: "Wolisz leżeć na plaży czy spacerować po lesie?",
         answers: ["plaża", "las"],
 
+    },
+    {
+        id: 6,
+        title: "Wyjeżdżasz w lecie czy zimą?",
+        answers: ["lato", "zima"],
+
     }
 ];
 

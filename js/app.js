@@ -27,18 +27,18 @@ class App extends Component {
         return (
 
             <AuthProvider>
-            <HashRouter>
-                <Switch>
-                    <PrivateRoute exact path='/' component={Main}/>
-                    <PrivateRoute exact path='/newQuiz' component={Quiz} />
-                    <PrivateRoute exact path='/history' component={History} />
-                    <Route exact path='/start' component={Start} />
-                    <Route exact path='/register' component={Register} />
-                    <Route exact path="/login" component={Login} />
-                    <Route exact path="/quiz" component={QuizQuestion} />
-                    <PrivateRoute exact path='/addPlace' component={AddPlace} />
-                </Switch>
-            </HashRouter>
+                <HashRouter>
+                    <Switch>
+                            <PrivateRoute exact path='/' component={Main}/>
+                            <PrivateRoute exact path='/newQuiz' component={Quiz} />
+                            <PrivateRoute exact path='/history' component={History} />
+                            <Route exact path='/start' component={Start} />
+                            <Route exact path='/register' component={Register} />
+                            <Route exact path="/login" component={Login} />
+                            <Route exact path="/quiz" component={QuizQuestion} />
+                            <PrivateRoute exact path='/addPlace' component={AddPlace} />
+                    </Switch>
+                </HashRouter>
             </AuthProvider>
         )
     }
