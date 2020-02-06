@@ -202,6 +202,12 @@
     opacity: 0.5;
   }
 
+  img {
+    width: 2rem;
+    height: 2rem;
+    margin: 0 2rem 0.5rem;
+  }
+
   i {
     position: absolute;
     right: 10%;
@@ -252,6 +258,7 @@ input[type="checkbox"] {
     border-radius: 4px;
     cursor: pointer;
     position: absolute;
+    right: -4px;
   }
   &:checked::after {
     content: "";

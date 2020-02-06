@@ -48,7 +48,8 @@ class AddPlace extends Component {
                 {
                     name: name,
                     description: description,
-                    photos: [photo1, photo2]
+                    photos: [photo1, photo2],
+                    visited: false,
                 }
         })
             .then(function(docRef) {

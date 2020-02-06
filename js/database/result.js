@@ -6,6 +6,7 @@ const resultPlaces = [
         tags: ["miasto", "zwiedzać", "gorący", "lato"],
         photos: ["https://lp-cms-production.imgix.net/2019-06/09a64fea2933f6da77ab07d671d1f678-south-korea.jpg?fit=crop&q=40&sharp=10&vib=20&auto=format&ixlib=react-8.6.4", "https://s8.dziennik.pl/pliki/12135000/12135180-korea-poludniowa-900-555.jpg"],
         score: 0,
+        visited: false,
     },
     {
         id: 2,
@@ -14,6 +15,7 @@ const resultPlaces = [
         tags: ["gorący", "miasto", "zwiedzać", "lato"],
         photos: ["https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80", "https://www.trafalgar.com/-/media/Project/Trafalgar/Product/hero-images/Splendours-of-Japan-w.jpg?smartCrop=1&centreCrop=1&w=1000&h=600"],
         score: 0,
+        visited: false,
     },
     {
         id: 3,
@@ -22,6 +24,7 @@ const resultPlaces = [
         tags: ["natura", "gorący", "lasy", "zwiedzać", "zima"],
         photos: ["http://www.inkas.com/tours/jpg_files/jpg_photos/brazil/new%20brazil%20jpgs/49f52d24635593.17038566frogview-gallery.jpg", "https://www.travelinglifestyle.net/wp-content/uploads/2018/07/brasil-759x500.jpg"],
         score: 0,
+        visited: false,
     },
     {
         id: 4,
@@ -30,6 +33,7 @@ const resultPlaces = [
         tags: ["miasto", "gorący", "plaże", "morze", "opalać się", "lato"],
         photos: ["https://s10206.pcdn.co/wp-content/uploads/2016/04/Dollarphotoclub_spain-1920x1280.jpg", "https://handluggageonly.co.uk/wp-content/uploads/2016/03/Unique-Towns-To-Visit-In-Spain_-5.jpg"],
         score: 0,
+        visited: false,
     },
     {
         id: 5,
@@ -38,6 +42,7 @@ const resultPlaces = [
         tags: ["natura", "zimny", "zwiedzać"],
         photos: ["https://www.traveller.com.au/content/dam/images/g/x/4/s/b/j/image.related.articleLeadwide.620x349.gx4s0h.png/1499313063335.jpg", "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fcdn-image.travelandleisure.com%2Fsites%2Fdefault%2Ffiles%2Fstyles%2F1600x1000%2Fpublic%2F1492803580%2Fglacier-boat-ANTLANDS0417.jpg%3Fitok%3DCcq2JOfh&q=85https://www.azamaraclubcruises.com/sites/default/files/heros/antarctica-facts-hero-image.jpg"],
         score: 0,
+        visited: false,
     },
     {
         id: 6,
@@ -46,6 +51,7 @@ const resultPlaces = [
         tags: ["natura", "zimny", "góry", "zwiedzać"],
         photos: ["https://www.eccotravel.eu/images/galeria/Islandia/islandia_18.jpg", "https://i.iplsc.com/zorza-polarna-oswietla-wrak-amerykanskiego-samolotu-na-islan/0004YR9WNDWE9643-C122-F4.jpg"],
         score: 0,
+        visited: false,
     },
     {
         id: 7,
@@ -54,6 +60,7 @@ const resultPlaces = [
         tags: ["miasto", "gorący", "plaże", "opalać się", "lato"],
         photos: ["https://www.worldtravelguide.net/wp-content/uploads/2017/04/Think-Egypt-Giza-Sphynx-178375366-pius99-copy.jpg", "https://www.havanatravelegypt.com/public_html/front/images/4.jpg/"],
         score: 0,
+        visited: false,
     },
     {
         id: 8,
@@ -62,6 +69,7 @@ const resultPlaces = [
         tags: ["natura", "gorący", "plaże", "opalać się", "lato"],
         photos: ["http://www.myhawaiitraveler.com/images/cache/cache_4/cache_a/cache_d/HK_Dyer_PropertyHero_6893-web-16aafda4.jpeg?ver=1468594472&aspectratio=1.5009380863039", "https://www.nationalgeographic.com/content/dam/adventure/photos/2017/stories/eric-sterman-aerial-surfing/aerial-seven-mile-miracle-north-shore-hawaii-aerial.adapt.1900.1.jpg"],
         score: 0,
+        visited: false,
     },
     {
         id: 9,
@@ -70,6 +78,7 @@ const resultPlaces = [
         tags: ["miasto", "gorący", "zwiedzać"],
         photos: ["https://www.peregrineadventures.com/sites/peregrine/files/styles/low-quality/public/pd/highlight/image/india_varanasi_highlight.jpg", "https://cdn.tourradar.com/s3/content-pages/46/1024x768/vshnmb.jpg"],
         score: 0,
+        visited: false,
     },
     {
         id: 10,
@@ -78,6 +87,7 @@ const resultPlaces = [
         tags: ["natura", "gorący", "lasy", "zwiedzać", "zima"],
         photos: ["https://www.worldtravelguide.net/wp-content/uploads/2017/04/shu-NewZealand-155246192-Olga-Danylenko-copy.jpg", "https://nz.ambafrance.org/local/cache-vignettes/L945xH531/2f810c5f814ea3d6-e7a79.jpg?1569856132"],
         score: 0,
+        visited: false,
     },
     {
         id: 11,
@@ -86,6 +96,7 @@ const resultPlaces = [
         tags: ["natura", "zimny", "góry", "zwiedzać", "zima"],
         photos: ["http://purmosfera.pl/wp-content/uploads/2015/03/purmo_sztuka_ogrzewania_finlandia_1.jpg", "https://cdn3.podroze.smcloud.net/t/photos/140543/finlandia-zimowy-krajobraz-w-okolicach-saariselka.jpg"],
         score: 0,
+        visited: false,
     },
     {
         id: 12,
@@ -94,6 +105,7 @@ const resultPlaces = [
         tags: ["zwiedzać", "natura", "zimny", "góry"],
         photos: ["https://podroze.smcloud.net/t/photos/t/144204/vintgar-w-slowenii_1131960.jpg","https://ocdn.eu/pulscms-transforms/1/zNak9kqTURBXy8yYTc2MzI1NjU2YTM1ZmNmOTgxNzUyYTYzMmVkOTBmMy5qcGVnk5UDXc0BBs0FLs0C6ZMFzQMUzQG8kwmmZmExM2M0BoGhMAE/bled.jpg"],
         score: 0,
+        visited: false,
     },
     {
         id: 13,
@@ -102,6 +114,7 @@ const resultPlaces = [
         tags: ["opalać się", "plaża", "gorący", "lato"],
         photos: ["https://gfx.radiozet.pl/var/radiozet/storage/images/podroze-radia-zet/albania-balkanski-kraj-kontrastow-i-kolorow/634950-1-pol-PL/Albania-balkanski-kraj-kontrastow-i-kolorow_article.jpg","http://albaniapopolsku.pl/wp-content/uploads/2018/02/20180217_1218202-2000x1200.jpg"],
         score: 0,
+        visited: false,
     },
     {
         id: 14,
@@ -110,6 +123,7 @@ const resultPlaces = [
         tags: ["natura", "zwiedzać", "zimny", "lato"],
         photos: ["https://f4fcdn.eu/wp-content/uploads/2018/12/aberdeen-Fot.-iweta0077-Shutterstock.jpg","https://solisci.pl/wp-content/uploads/2019/04/morska-przygoda-trekkingi-i-destylarnie-whisky-30.jpg"],
         score: 0,
+        visited: false,
     }
     // {
     //     id: 12,

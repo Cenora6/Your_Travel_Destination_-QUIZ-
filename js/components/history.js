@@ -4,12 +4,14 @@ import Menu from "./menu"
 import Moon from "./moon"
 import "./../../scss/utils/_variables.scss";
 import firebase from "./../../config/firebase";
+import checkmark from "./../../images/checkmark.svg";
 
 class HistoryPanel extends Component {
     state = {
         data: [],
         clicked: false,
         id: "",
+        visited: [],
     };
 
     deleteData = (id) => {
@@ -24,28 +26,32 @@ class HistoryPanel extends Component {
         });
     };
 
-    componentDidMount() {
+    componentDidMount = () => {
         this.getHistory();
-    }
+    };
 
     getHistory = () => {
-
-        const email = firebase.auth().currentUser && firebase.auth().currentUser.email;
+        const email = firebase.auth().currentUser.email;
 
         firebase.firestore().collection("history").where("email", "==", email ).get().then(places => {
             const array = [];
+            const arrayVisited = [];
 
             places.forEach(doc => {
                 const place = doc.data();
                 place.id = doc.id;
-
                 array.push(place);
             });
 
+            for (let i = 0; i < array.length; i++) {
+                if(array[i].place.visited === true) {
+                    arrayVisited.push(array[i].id);
+                }
+            }
             this.setState({
                 data: array,
+                visited: arrayVisited,
             })
-
         });
     };
 
@@ -54,6 +60,48 @@ class HistoryPanel extends Component {
             id: index,
             clicked: !this.state.clicked,
         });
+    };
+
+    handleCheckbox = (e) => {
+        console.log("1", e.target.checked);
+
+        const visited = this.state.visited;
+        let array;
+
+        if (e.target.checked) {
+            visited.push(e.target.value)
+        } else {
+            array = visited.indexOf(e.target.value);
+            visited.splice(array, 1)
+        }
+
+        this.setState({
+            visited: visited,
+        });
+
+        if(this.state.visited.indexOf(e.target.name) !== -1) {
+            firebase
+                .firestore()
+                .collection("history")
+                .doc(e.target.name)
+                .update({
+                    "place.visited": true,
+                })
+                .then(function() {
+                    console.log("Document successfully updated!");
+                })
+        } else {
+            firebase
+                .firestore()
+                .collection("history")
+                .doc(e.target.name)
+                .update({
+                    "place.visited": false,
+                })
+                .then(function() {
+                    console.log("Document successfully updated!");
+                })
+        }
     };
 
     render() {
@@ -87,6 +135,9 @@ class HistoryPanel extends Component {
                                 <td className="description">
                                     <div className="mainInfo" onClick={(e) => this.showDetails (e, index)}>
                                         <h3>{places.place.name}</h3>
+                                        {this.state.clicked === true ? null :
+                                            this.state.visited.indexOf(places.id) > -1 ? <img src={checkmark} alt='checkmark'/> : null
+                                        }
                                         <i className="far fa-minus-square" onClick={() => this.deleteData (places.id)}></i>
                                     </div>
                                     <div className={`details ${(this.state.clicked === true && index === this.state.id) ? "animate slideIn" : "hidden"}`} id={index}>
@@ -101,8 +152,9 @@ class HistoryPanel extends Component {
                                             <p>{places.place.description}</p>
                                         </div>
                                         <div className='visited'>
-                                            <label className="text" htmlFor="visited">Visited</label>
-                                            <input type="checkbox" name="visited" id="visited"/>
+                                            <label className="text" htmlFor={index}>Zwiedzone</label>
+                                            <input type="checkbox" name={places.id} id={index} value={places.id} checked={ this.state.visited.indexOf(places.id) > -1}
+                                                   onChange={this.handleCheckbox}/>
                                         </div>
                                     </div>
 
