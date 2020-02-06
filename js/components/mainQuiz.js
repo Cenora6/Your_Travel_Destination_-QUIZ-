@@ -19,7 +19,7 @@ class QuizPanel extends Component {
 
         return (
             <>
-                <section className="quizPage">
+                <section className="quizPage container">
                     <h2>Your Travel Destination</h2>
                     <p>Rozwiąż quiz by dowiedzieć się, w które miejsce powinieneś/aś się wybrać!</p>
                     <NavLink to="/quiz" style={linkStyle}><button className="buttonStart">Kliknij by rozpocząć</button></NavLink>

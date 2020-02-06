@@ -57,7 +57,7 @@ class Login extends Component {
             color: "#fff",
         };
         return (
-            <section className="logInTab">
+            <section className="logInTab container">
                 {this.state.error &&
                 <div className={`error ${this.state.fadeOut === true ? "fadeOut" : "fadeIn"}`}>
                     <span className='error-message'>Błędne dane.</span>

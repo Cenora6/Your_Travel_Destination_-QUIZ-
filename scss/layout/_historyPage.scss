@@ -36,22 +36,11 @@
 }
 
 .historyPage {
-  width: 70rem;
-  height: 40rem;
-  background-color: #FFFFFF;
-  position: absolute;
-  top: 20%;
-  left: 25%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  z-index: 1000;
-  border-radius: 1rem;
-  box-shadow: 10px 10px 20px grey;
   border: 1px solid rgba(0, 0, 0, 0.5);
 
   h2 {
+    position: absolute;
+    top: 0;
     font-size: 3.5rem;
     font-family: $titleFont;
     padding: 1.5rem 0.5rem;
@@ -80,6 +69,19 @@
     font-family: $decorativeFont;
     font-size: 2rem;
     font-weight: 600;
+  }
+
+  h4 {
+    font-family: $decorativeFont;
+    font-size: 3rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .emptyInfo {
+    margin: 2rem 0;
+    font-size: 1.5rem;
+        font-family: $titleFont;
   }
 
   p {

@@ -98,7 +98,7 @@ class AddPlace extends Component {
                         </button>
                     </section>
 
-                    <section className="addPlace">
+                    <section className="addPlace container">
 
                         {this.state.error &&
                         <div className={`error ${this.state.fadeOut === true ? "fadeOut" : "fadeIn"}`}>

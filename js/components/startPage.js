@@ -14,7 +14,7 @@ class Welcome extends Component {
             color: "#fff",
         };
         return (
-            <section className="loginPage">
+            <section className="loginPage container">
                 <h2>Witaj, przybyszu!</h2>
 
                 <div className="fadeIn">

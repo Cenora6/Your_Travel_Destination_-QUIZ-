@@ -69,7 +69,7 @@ class Register extends Component {
             color: "#fff",
         };
         return (
-            <section className="registerTab">
+            <section className="registerTab container">
 
                 {this.state.errorData &&
                 <div className={`error ${this.state.fadeOut === true ? "fadeOut" : "fadeIn"}`}>

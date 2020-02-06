@@ -71,7 +71,7 @@ class QuizPanel extends Component {
         let randomResult2 = Math.floor(Math.random() * (max - min) + min);
 
         if (randomResult === randomResult2) {
-            randomResult2 = Math.floor(Math.random() * (max - min) + min);
+            randomResult2 = randomResult + 1;
         }
 
         newResult.push(resultPlaces[randomResult]);
@@ -99,7 +99,7 @@ class QuizPanel extends Component {
         if (this.state.currentQuestion > 5 ) {
             return (
                 (this.state.loading === true) ?
-                    <section className="quizPage">
+                    <section className="quizPage container">
                         <div className="sk-cube-grid">
                             <div className="sk-cube sk-cube1"></div>
                             <div className="sk-cube sk-cube2"></div>
@@ -113,7 +113,7 @@ class QuizPanel extends Component {
                         </div>
                     </section>
                     :
-                    <section className="quizPage">
+                    <section className="quizPage container">
                         <table>
                             <tbody>
                             {this.state.result.map(item => {
@@ -143,7 +143,7 @@ class QuizPanel extends Component {
             const photos = questionsAnswers[this.state.currentQuestion].photos;
             return (
                 <>
-                    <section className="quizPage">
+                    <section className="quizPage container">
                         {this.state.loading === true  ?
                             <div className="sk-cube-grid">
                                 <div className="sk-cube sk-cube1"></div>

@@ -120,51 +120,63 @@ class HistoryPanel extends Component {
                     </NavLink>
                     </button>
                 </section>
-                <section className="historyPage">
+                <section className="historyPage container">
                     <h2>Twoje wakacyjne miejsca</h2>
-                    <table className="historyPlaces">
-                        <tbody>
-                        {this.state.data.map( (places, index) =>
-                            <tr key={index}>
-                                <td className="id">
-                                    <span>{index + 1}</span>
-                                    <div className="line1"></div>
-                                    <div className="line2"></div>
-                                    <div className="line3"></div>
-                                </td>
-                                <td className="description">
-                                    <div className="mainInfo">
-                                        <div class='title'>
-                                            <h3 onClick={(e) => this.showDetails (e, index)}>{places.place.name}</h3>
-                                            {this.state.visited.indexOf(places.id) > -1 ? <img src={checkmark} alt='checkmark'/> : null}
-                                        </div>
-                                        <i className="far fa-minus-square" onClick={() => this.deleteData (places.id)}></i>
-                                    </div>
-                                    <div className={`details ${(this.state.clicked === true && index === this.state.id) ? "animate slideIn" : "hidden"}`} id={index}>
-                                        <div className='photo'>
-                                            {places.place.photos.map( (photo, index) => {
-                                                return (
-                                                    <img src={photo} alt='photo' key={index}/>
-                                                )
-                                            })}
-                                        </div>
-                                        <div className='info'>
-                                            <p>{places.place.description}</p>
-                                        </div>
-                                        <div className='visited'>
-                                            <label className="text" htmlFor={index}>Zwiedzone</label>
-                                            <input type="checkbox" name={places.id} id={index} value={places.id} checked={ this.state.visited.indexOf(places.id) > -1}
-                                                   onChange={this.handleCheckbox}/>
-                                        </div>
-                                    </div>
 
-                                </td>
-                            </tr>
+                    {(this.state.data.length === 0) ?
+                        <>
+                            <h4>Nie ma jeszcze żadnej historii... :(</h4>
+                            <span className='emptyInfo'>Może wykonaj quiz albo dodaj własne miejsce?</span>
+                        </>
+                        :
+                        <table className="historyPlaces">
+                            <tbody>
+                            {this.state.data.map((places, index) =>
+                                <tr key={index}>
+                                    <td className="id">
+                                        <span>{index + 1}</span>
+                                        <div className="line1"></div>
+                                        <div className="line2"></div>
+                                        <div className="line3"></div>
+                                    </td>
+                                    <td className="description">
+                                        <div className="mainInfo">
+                                            <div class='title'>
+                                                <h3 onClick={(e) => this.showDetails(e, index)}>{places.place.name}</h3>
+                                                {this.state.visited.indexOf(places.id) > -1 ?
+                                                    <img src={checkmark} alt='checkmark'/> : null}
+                                            </div>
+                                            <i className="far fa-minus-square"
+                                               onClick={() => this.deleteData(places.id)}></i>
+                                        </div>
+                                        <div
+                                            className={`details ${(this.state.clicked === true && index === this.state.id) ? "animate slideIn" : "hidden"}`}
+                                            id={index}>
+                                            <div className='photo'>
+                                                {places.place.photos.map((photo, index) => {
+                                                    return (
+                                                        <img src={photo} alt='photo' key={index}/>
+                                                    )
+                                                })}
+                                            </div>
+                                            <div className='info'>
+                                                <p>{places.place.description}</p>
+                                            </div>
+                                            <div className='visited'>
+                                                <label className="text" htmlFor={index}>Zwiedzone</label>
+                                                <input type="checkbox" name={places.id} id={index} value={places.id}
+                                                       checked={this.state.visited.indexOf(places.id) > -1}
+                                                       onChange={this.handleCheckbox}/>
+                                            </div>
+                                        </div>
 
-                        )}
+                                    </td>
+                                </tr>
+                            )}
 
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    }
                 </section>
             </>
         )
