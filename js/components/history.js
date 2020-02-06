@@ -133,11 +133,11 @@ class HistoryPanel extends Component {
                                     <div className="line3"></div>
                                 </td>
                                 <td className="description">
-                                    <div className="mainInfo" onClick={(e) => this.showDetails (e, index)}>
-                                        <h3>{places.place.name}</h3>
-                                        {this.state.clicked === true ? null :
-                                            this.state.visited.indexOf(places.id) > -1 ? <img src={checkmark} alt='checkmark'/> : null
-                                        }
+                                    <div className="mainInfo">
+                                        <div class='title'>
+                                            <h3 onClick={(e) => this.showDetails (e, index)}>{places.place.name}</h3>
+                                            {this.state.visited.indexOf(places.id) > -1 ? <img src={checkmark} alt='checkmark'/> : null}
+                                        </div>
                                         <i className="far fa-minus-square" onClick={() => this.deleteData (places.id)}></i>
                                     </div>
                                     <div className={`details ${(this.state.clicked === true && index === this.state.id) ? "animate slideIn" : "hidden"}`} id={index}>
