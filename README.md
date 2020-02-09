@@ -5,11 +5,6 @@ A quiz, used to determine a travel destination.
 
 If you have ever wondered where to go on your holiday, this quiz will choose for you your travel destination! 
 
-![](images/preview/login.png)
-![](images/preview/main.png)
-![](images/preview/quiz.png)
-![](images/preview/history.png)
-
 ## Technologies:
 - HTML5
 - CSS
@@ -23,3 +18,6 @@ If you have ever wondered where to go on your holiday, this quiz will choose for
 - ```npm install``` to install all dependencies
 - ```npm start``` to preview the app
 - ```http://localhost:3001/``` in browser to try the quiz :) 
+
+## Preview: 
+Check the preview of the quiz here: https://cenora6.github.io/Your_Travel_Destination_-QUIZ-/#/
