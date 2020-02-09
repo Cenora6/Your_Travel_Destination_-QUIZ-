@@ -1,9 +1,9 @@
 # Your Travel Destination
 
 ## Description:
-A quiz, used to determine a travel destination. 
+A quiz, used to determine a travel destination. If you have ever wondered where to go on your holiday, this quiz will choose for you your travel destination! 
 
-If you have ever wondered where to go on your holiday, this quiz will choose for you your travel destination! 
+You can register and login to your own account. After login, you can either check your history of the results or take another quiz. All the quiz results are saved in the history, where you can check the places as already visited or delete them. You can also add your own place to the list.
 
 ## Technologies:
 - HTML5
