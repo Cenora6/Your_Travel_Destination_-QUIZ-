@@ -9,10 +9,11 @@ class MainPanel extends Component {
         const activeStyle = {
             fontSize: "2rem",
         };
+
         const linkStyle = {
             textDecoration: "none",
             color: "#fff",
-        };
+    };
 
         return (
             <>
@@ -25,7 +26,7 @@ class MainPanel extends Component {
                             Trafiłeś/aś więc w odpowiednie miejsce! Zagraj w quiz i dowiedz się, jakie miejsce na wakacyjne
                             wyprawy będzie dla ciebie najlepsze! :)
                         </p>
-                        <button><NavLink exact to="/newQuiz" style={linkStyle} activeStyle={activeStyle}>➤ Rozpocznij nowy QUIZ</NavLink></button>
+                        <button><NavLink exact to="/newQuiz" style={linkStyle} activeStyle={activeStyle}>➤ Rozpocznij <br/> nowy QUIZ</NavLink></button>
                     </div>
 
                     <div className="rightMainBox box">
@@ -33,7 +34,7 @@ class MainPanel extends Component {
                         <p>Masz w planach wreszcie urlop? Planujesz miejsce wyjazdu na wakacje? Sprawdź swoją historię
                         i zaplanuj niezapomniane wakacje w jednym z tych miejsc :) A może chcesz dodać nowe miejsce do
                         planowanych? Zrobisz to też tam!</p>
-                        <button><NavLink exact to="/history" style={linkStyle} activeStyle={activeStyle}>➤ Twoja historia</NavLink></button>
+                        <button><NavLink exact to="/history" style={linkStyle} activeStyle={activeStyle}>➤ Twoja<br/> historia</NavLink></button>
                     </div>
                 </section>
             </>

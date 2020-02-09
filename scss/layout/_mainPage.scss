@@ -39,7 +39,7 @@
   }
 }
 
-.leftMainBox {
+.leftMainBox, .rightMainBox {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,32 +48,28 @@
   button {
     width: 30%;
     height: 100%;
-    background: url("./../images/grass button.jpg") no-repeat center ;
-    cursor: pointer;
-    color: white;
-    font-size: 3rem;
+    font-size: 2rem;
     font-family: 'Indie Flower', cursive;
-    border:2px solid black;
+    border: 2px solid black;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+}
+
+.leftMainBox {
+  button {
+    background: url("./../images/grass button.jpg") no-repeat center ;
   }
 }
 
 .rightMainBox {
   margin-top: 3rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: row-reverse;
-  background-color: #FFFFFF;
 
   button {
-    width: 30%;
-    height: 100%;
     background: url("./../images/skybutton.jpeg") no-repeat center ;
-    cursor: pointer;
-    color: white;
-    font-size: 3rem;
-    font-family: 'Indie Flower', cursive;
-    border:2px solid black;
   }
-
 }

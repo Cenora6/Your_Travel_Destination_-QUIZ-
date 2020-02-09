@@ -15,11 +15,6 @@ class Menu extends Component {
     };
 
     render() {
-        const activeStyle = {
-            fontSize: "2.1rem",
-            textDecoration: "none",
-            textShadow: "1px 1px 2px #000, 0 0 2rem #FDC830"
-        };
         const linkStyle = {
             textDecoration: "none",
             color: "#ffbf00",
@@ -36,13 +31,19 @@ class Menu extends Component {
                 <div className="menu">
                     <ul className="menuBar">
 
-                        <li className="LogOut">
+                        <li className="logOut links">
                             <span className="loginName">{firebase.auth().currentUser && firebase.auth().currentUser.email}</span>
                             <NavLink exact to="/start" style={logoutStyle} onClick={this.handleLogOut}>WYLOGUJ</NavLink>
                         </li>
-                        <li><NavLink exact to='/home' style={linkStyle} activeStyle={activeStyle}><i className="fab fa-fort-awesome"></i></NavLink></li>
-                        <li><NavLink exact to="/newQuiz" style={linkStyle} activeStyle={activeStyle}>Nowy QUIZ</NavLink></li>
-                        <li><NavLink exact to="/history" style={linkStyle} activeStyle={activeStyle}>Historia</NavLink></li>
+                        <li className='links'>
+                            <NavLink exact to='/home' style={linkStyle} activeClassName='activeLink'><i className="fab fa-fort-awesome"></i></NavLink>
+                        </li>
+                        <li className='links'>
+                            <NavLink exact to="/newQuiz" style={linkStyle} activeClassName='activeLink'>Nowy QUIZ</NavLink>
+                        </li>
+                        <li className='links'>
+                            <NavLink exact to="/history" style={linkStyle} activeClassName='activeLink'>Historia</NavLink>
+                        </li>
                     </ul>
                 </div>
                 <div className="wave wave1"/>

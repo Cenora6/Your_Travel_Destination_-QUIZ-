@@ -18,6 +18,7 @@ import AddPlace from "./components/addPlace";
 import QuizQuestion from "./components/singleQuestion";
 import { AuthProvider } from "./Auth";
 import PrivateRoute from "./privateRoute";
+import { AnimatedSwitch } from 'react-router-transition';
 
 export const history = createHashHistory();
 
@@ -29,7 +30,12 @@ class App extends Component {
 
             <AuthProvider>
                 <HashRouter>
-                    <Switch>
+                    <AnimatedSwitch
+                        atEnter={{ opacity: 0 }}
+                        atLeave={{ opacity: 0 }}
+                        atActive={{ opacity: 1 }}
+                        className="switch-wrapper"
+                    >
                             <PrivateRoute exact path='/home' component={Main}/>
                             <PrivateRoute exact path='/newQuiz' component={Quiz} />
                             <PrivateRoute exact path='/history' component={History} />
@@ -38,7 +44,7 @@ class App extends Component {
                             <Route exact path="/login" component={Login} />
                             <Route exact path="/quiz" component={QuizQuestion} />
                             <PrivateRoute exact path='/addPlace' component={AddPlace} />
-                    </Switch>
+                    </AnimatedSwitch>
                 </HashRouter>
             </AuthProvider>
         )

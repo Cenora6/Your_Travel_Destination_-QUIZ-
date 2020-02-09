@@ -2,6 +2,13 @@ body {
   overflow-x:hidden;
   width: 100%;
 }
+.switch-wrapper {
+  position: relative;
+}
+
+.switch-wrapper > div {
+  position: absolute;
+}
 
 .container {
   width: 70rem;
@@ -114,4 +121,24 @@ body {
 .slideIn {
   -webkit-animation-name: slideIn;
   animation-name: slideIn;
+}
+
+button {
+  margin: 2rem;
+  width: 10rem;
+  height: 4rem;
+  outline: none;
+  border: 1.5px solid #7a7a7a;
+  cursor: pointer;
+  color: #FFF;
+  font-size: 1.2rem;
+  border-radius: 2rem;
+  text-shadow: -1px -1px 0 #636363, 1px -1px 0 #636363, -1px 1px 0 #636363, 1px 1px 0 #636363;
+  white-space: nowrap;
+  background: #FFA500 url('./../images/waveButton.png') repeat-x 0 -100%;
+  transition: 1.5s ease;
+
+  &:hover {
+    background-position: 500% 100%;
+  }
 }

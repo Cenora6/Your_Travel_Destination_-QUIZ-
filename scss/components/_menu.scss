@@ -17,16 +17,65 @@
     justify-content: center;
     align-items: center;
 
-    li {
-      padding: 3rem 1rem;
+    .links {
+      text-align: center;
+      width: 10rem;
+      padding: 1rem 0;
       font-size: 1.8rem;
       font-family: 'Kalam', cursive;
-      text-shadow:  1px 1px #000;
       font-weight: 800;
+      text-shadow: -1px -1px 0 #636363, 1px -1px 0 #636363, -1px 1px 0 #636363, 1px 1px 0 #636363;
 
       &:hover {
-          background: url("./../images/chevron-left-solid.png")
+        opacity: 0.8;
       }
+
+      &:first-of-type {
+        &:after,
+        &:before {
+          display: none;
+        }
+      }
+
+      &:after,
+      &:before {
+        backface-visibility: hidden;
+        border: 1px solid rgba(#fff, 0);
+        content: " ";
+        display: block;
+        margin: 1rem auto;
+        transition: all 280ms ease-in-out;
+        width: 0;
+      }
+
+      &:hover:after,
+      &:hover:before {
+        backface-visibility: hidden;
+        border-color: #ffbf00;
+        transition: width 350ms ease-in-out;
+        width: 100%;
+      }
+
+      &:hover:before {
+        bottom: auto;
+        width: 100%;
+      }
+    }
+  }
+
+  .activeLink {
+    &:after,
+    &:before {
+      border: 1px solid #ffbf00;
+      content: " ";
+      display: block;
+      margin: 1rem auto;
+      width: 10rem;
+      position: absolute;
+    }
+
+    &:before {
+      margin: -1.1rem auto;
     }
   }
 
@@ -101,7 +150,7 @@
   padding-bottom: 1rem;
 }
 
-.LogOut {
+.logOut {
   display: flex;
   flex-direction: column;
   justify-content: center;
