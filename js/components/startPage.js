@@ -32,12 +32,12 @@ class Welcome extends Component {
                 <div className="fadeIn loginRegister">
                     <div className="logIn">
                         <span>Masz już konto?</span>
-                        <NavLink to="/login" style={linkStyle}><button>Zaloguj</button></NavLink>
+                        <NavLink to="/login" style={linkStyle}><button className='button'>Zaloguj</button></NavLink>
                     </div>
 
                     <div className="register">
                         <span>Jesteś tu pierwszy raz?</span>
-                        <NavLink to="/register" style={linkStyle}><button>Zarejestruj</button></NavLink>
+                        <NavLink to="/register" style={linkStyle}><button className='button'>Zarejestruj</button></NavLink>
                     </div>
                 </div>
             </section>

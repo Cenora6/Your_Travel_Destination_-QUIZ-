@@ -39,23 +39,16 @@
     background: url("./../images/quizButton.jpg") center;
     color: white;
     font-size: 3rem;
-    text-shadow: 1px 1px black;
     cursor: pointer;
     border: 2px solid black;
     margin-left: 3rem;
-  }
+    border-radius: 2rem;
+    text-shadow: -1px -1px 0 #636363, 1px -1px 0 #636363, -1px 1px 0 #636363, 1px 1px 0 #636363;
 
-  .buttonResult {
-    width: 80%;
-    height: 3rem;
-    background: url("./../images/quizButton.jpg") center;
-    color: white;
-    font-size: 2rem;
-    text-shadow: 1px 1px black;
-    cursor: pointer;
-    border: 2px solid black;
-    margin-left: 1.5rem;
-    margin-bottom: 2rem;
+    &:hover {
+      opacity: 0.8;
+      transition: 0.5s ease-out;
+    }
   }
 }
 
@@ -74,6 +67,7 @@
     margin: auto;
     width: 90%;
     padding: 1rem 0;
+
 
     .photos {
       display: flex;

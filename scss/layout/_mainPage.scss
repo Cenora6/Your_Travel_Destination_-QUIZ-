@@ -51,12 +51,15 @@
     font-size: 2rem;
     font-family: 'Indie Flower', cursive;
     border: 2px solid black;
+    text-shadow: -1px -1px 0 #636363, 1px -1px 0 #636363, -1px 1px 0 #636363, 1px 1px 0 #636363;
+    border-radius: 2rem;
+    cursor: pointer;
 
     &:hover {
       opacity: 0.5;
+      transition: 0.5s ease;
     }
   }
-
 }
 
 .leftMainBox {

@@ -82,8 +82,8 @@ class Login extends Component {
                                onChange={this.handleChange}/>
                     </label>
                     <div className="buttons">
-                        <button type="submit">Zaloguj</button>
-                        <NavLink to="/" style={linkStyle}><button>Wróć</button></NavLink>
+                        <button className='button' type="submit">Zaloguj</button>
+                        <NavLink to="/" style={linkStyle}><button className='button'>Wróć</button></NavLink>
                     </div>
                 </form>
             </section>

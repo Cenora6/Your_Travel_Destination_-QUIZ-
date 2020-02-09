@@ -104,8 +104,8 @@ class Register extends Component {
                         />
                     </label>
                     <div className="buttons">
-                        <button type="submit">Zarejestruj</button>
-                        <NavLink to="/" style={linkStyle}><button>Wróć</button></NavLink>
+                        <button className='button'  type="submit">Zarejestruj</button>
+                        <NavLink to="/" style={linkStyle}><button className='button'>Wróć</button></NavLink>
                     </div>
                 </form>
             </section>
